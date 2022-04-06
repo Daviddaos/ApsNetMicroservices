@@ -1,0 +1,17 @@
+﻿@page
+@model SearchUserModel
+@{
+    ViewData["Title"] = "Search User";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="get">
+    <div class="input-group">
+        <input class="form-control" asp-for="SearchFilter" />
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+
+<p>Use this page to detail your site's privacy policy.</p>
