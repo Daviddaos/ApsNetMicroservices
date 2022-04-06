@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  userdb:
+    image: mongo
+
+  user.api:
+    image: ${DOCKER_REGISTRY-}userapi
+    build:
+      context: .
+      dockerfile: Services/User/User.API/Dockerfile
+
+volumes:
+  mongo_data: 

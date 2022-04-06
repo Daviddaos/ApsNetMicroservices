@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  userdb:
+    container_name: userdb
+    restart: always
+    ports:
+      - "27017-27017"
+    volumes:
+      - mongo_data:/data/db
+
+  user.api:
+    container_name: user.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=mongodb://userdb:27017"
+    depends_on:
+      - userdb
+    ports:
+      - "8000:80"
